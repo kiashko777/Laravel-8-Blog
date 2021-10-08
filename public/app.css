@@ -1,12 +1,21 @@
 body {
-  background: white;
+  background: #2d3748;
   max-width: 600px;
-  color: #222222;
+  color: white;
   margin: auto;
 }
 
 p {
   line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: red;
 }
 
 article + article {

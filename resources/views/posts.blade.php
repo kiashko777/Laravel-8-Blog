@@ -10,21 +10,21 @@
 </head>
 <body>
 <article>
-  <h1><a href="/post">My first post</a></h1>
+  <h1><a href="/posts/my-first-post">My first post</a></h1>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A debitis exercitationem in laboriosam optio perferendis
     porro sit, voluptatem? Accusantium adipisci aliquam distinctio doloribus dolorum eligendi, error ex incidunt iusto
     modi, necessitatibus non quidem quod repellendus sed sunt, suscipit unde vitae.</p>
 </article>
 
 <article>
-  <h1><a href="/post">My second post</a></h1>
+  <h1><a href="/posts/my-second-post">My second post</a></h1>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A debitis exercitationem in laboriosam optio perferendis
     porro sit, voluptatem? Accusantium adipisci aliquam distinctio doloribus dolorum eligendi, error ex incidunt iusto
     modi, necessitatibus non quidem quod repellendus sed sunt, suscipit unde vitae.</p>
 </article>
 
 <article>
-  <h1><a href="/post">My third post</a></h1>
+  <h1><a href="/posts/my-third-post">My third post</a></h1>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A debitis exercitationem in laboriosam optio perferendis
     porro sit, voluptatem? Accusantium adipisci aliquam distinctio doloribus dolorum eligendi, error ex incidunt iusto
     modi, necessitatibus non quidem quod repellendus sed sunt, suscipit unde vitae.</p>
