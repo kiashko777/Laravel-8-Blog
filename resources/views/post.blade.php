@@ -5,5 +5,6 @@
     <h1>{{ $post->title }}</h1>
     <div>{!!$post->body!!}</div>
   </article>
+  <br>
   <a href="/">Go Back</a>
 @endsection
