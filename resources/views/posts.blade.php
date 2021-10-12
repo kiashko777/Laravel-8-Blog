@@ -8,7 +8,8 @@
           {{ $post->title }}
         </a>
       </h1>
-      <a href="#">Category: {{ $post->category->name }}</a>
+      By<a href="#">{{ $post->user->name }}</a> | <a
+        href="/categories/{{ $post->category->slug }}">Category: {{ $post->category->name }}</a>
       <br><br>
       <div>{{ $post->excerpt }}</div>
     </article>
