@@ -33,7 +33,7 @@ Route::get('/posts/{post:slug}', function (Post $post) {
   ]);
 });
 
-//ROUTE TO FETCH AUTHOR
+//ROUTE TO FETCH AUTHOR POSTS
 
 Route::get('authors/{author:username}', function (User $author) {
 
