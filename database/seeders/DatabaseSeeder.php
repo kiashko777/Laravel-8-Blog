@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
 //    ]);
 
 
-    Post::factory(10)->create();
+    Post::factory(20)->create();
 
 //Usage of DB seeder
 

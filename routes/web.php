@@ -20,7 +20,8 @@ use App\Models\User;
 
 Route::get('/', function () {
   return view('posts', [
-    'posts' => Post::latest()->with('category', 'author')->get()
+    'posts' => Post::latest()->with('category', 'author')->get(),
+    'categories' => Category::all()
   ]);
 });
 
@@ -33,12 +34,13 @@ Route::get('/posts/{post:slug}', function (Post $post) {
   ]);
 });
 
-//ROUTE TO FETCH AUTHOR POSTS
+//ROUTE TO FETCH AUTHOR'S POSTS
 
 Route::get('authors/{author:username}', function (User $author) {
 
   return view('posts', [
-    'posts' => $author->posts->load(['category', 'author'])
+    'posts' => $author->posts->load(['category', 'author']),
+    'categories' => Category::all()
   ]);
 });
 
@@ -47,6 +49,8 @@ Route::get('authors/{author:username}', function (User $author) {
 Route::get('categories/{category:slug}', function (Category $category) {
 
   return view('posts', [
-    'posts' => $category->posts->load(['category', 'author'])
+    'posts' => $category->posts->load(['category', 'author']),
+    'carrentCategory' => $category,
+    'categories' => Category::all()
   ]);
 });
