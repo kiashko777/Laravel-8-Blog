@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,21 +19,13 @@ use App\Models\User;
 
 //MAIN ROUTE
 
-Route::get('/', function () {
-  return view('posts', [
-    'posts' => Post::latest()->with('category', 'author')->get(),
-    'categories' => Category::all()
-  ]);
-});
+Route::get('/', [PostController::class, 'index'])->name('home');
+
 
 //ROUTE FOR FETCH SINGLE POST
 
-Route::get('/posts/{post:slug}', function (Post $post) {
+Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-  return view('post', [
-    'post' => $post
-  ]);
-});
 
 //ROUTE TO FETCH AUTHOR'S POSTS
 
