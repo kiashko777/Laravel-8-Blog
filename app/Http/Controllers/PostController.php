@@ -9,18 +9,18 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
 
-  public function index()
+  public function index(Post $post)
   {
 
-    return view('posts', [
-      'posts' => Post::latest()->with('category', 'author')->filter(request(['search']))->get(),
+    return view('posts.index', [
+      'posts' => Post::latest()->with('category', 'author')->filter(request(['search', 'category','author',]))->paginate(),
       'categories' => Category::all()
     ]);
   }
 
   public function show(Post $post)
   {
-    return view('post', [
+    return view('posts.show', [
       'post' => $post
     ]);
   }
