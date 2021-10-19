@@ -5,6 +5,8 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,27 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 //ROUTE FOR FETCH SINGLE POST
 
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+
+
+//ROUTE TO CREATE THE USER
+
+Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
+
+
+//ROUTE TO STORE THE USER
+
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
+
+
+//ROUTE TO LOGOUT THE USER
+
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+
+
+//ROUTE TO LOGIN THE USER
+
+Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
 
 
 //ROUTE TO FETCH AUTHOR'S POSTS

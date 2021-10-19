@@ -11,7 +11,7 @@
       <header class="mt-8 lg:mt-0">
         <div class="space-x-2">
           <a href="/categories/{{ $post->category->slug }}"
-             class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-blue-300 hover:bg-blue-400 hover:text-white text-xs uppercase font-semibold"
+             class="px-3 py-1 border border-blue-300 rounded-full text-blue-400 text-bold hover:bg-blue-500 hover:text-white text-xs uppercase font-semibold"
              style="font-size: 10px">{{ $post->category->name }}</a>
 
         </div>
@@ -23,7 +23,7 @@
             </a>
           </h1>
 
-          <span class="mt-2 block text-gray-400 text-xs">
+          <span class="mt-2 block text-gray-500 text-xs">
             Published <time>{{ $post->created_at->diffForHumans() }}</time>
           </span>
         </div>
