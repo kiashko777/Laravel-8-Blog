@@ -35,7 +35,6 @@
                   </path>
                 </g>
               </svg>
-
               Back to Posts
             </a>
 
@@ -66,10 +65,32 @@
                 </path>
               </g>
             </svg>
-
             Back to Posts
           </a>
         </div>
+
+        {{--COMMENTS SECTION--}}
+        <section class="col-span-8 col-start-5 mt-10 space-y-4">
+          @auth()
+            <x-comment-field :post="$post"/>
+          @else
+            <p class="mb-8 font-bold">
+              To leave the comments please
+              <a href="/register"
+                 class="text-xs font-bold underline uppercase hover:bg-blue-500 hover:text-white p-2 rounded">Register</a>
+              or
+              <a href="/login"
+                 class="ml-3 text-xs font-bold underline uppercase hover:bg-blue-500 hover:text-white p-2 rounded">Log
+                In</a>
+            </p>
+          @endauth
+
+
+          @foreach($post->comments as $comment)
+            <x-post-comment :comment="$comment"/>
+          @endforeach
+
+        </section>
 
       </article>
 

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\PostCommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,10 @@ Route::post('register', [RegisterController::class, 'store'])->middleware('guest
 //ROUTE TO LOGOUT THE USER
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+
+
+//ROUTE TO HANDLE THE COMMENTS
+Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store']);
 
 
 //ROUTE TO LOGIN THE USER
