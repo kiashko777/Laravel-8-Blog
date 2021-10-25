@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\PostCommentsController;
+use App\Http\Controllers\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,7 @@ Route::get('authors/{author:username}', function (User $author) {
   ]);
 });
 
+
 //ROUTE TO FETCH CATEGORIES
 
 Route::get('categories/{category:slug}', function (Category $category) {
@@ -76,3 +78,8 @@ Route::get('categories/{category:slug}', function (Category $category) {
     'categories' => Category::all()
   ]);
 });
+
+
+//ROUTE TO HANDLE SUBSCRIBE FOR NEWSLETTERS
+
+Route::post('newsletter', [NewsletterController::class, 'subscribe']);
