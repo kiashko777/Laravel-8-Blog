@@ -1,5 +1,7 @@
 @props(['post'])
 
+{{--FORM TO CREATE AND SEND THE COMMENTS--}}
+
 <form method="POST" action="/posts/{{ $post->slug }}/comments"
       class="border border-gray-300 bg-gray-100 p-6 rounded-xl">
   @csrf

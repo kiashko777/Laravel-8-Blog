@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class PostCommentsController extends Controller
 {
+
+  //  METHOD TO CREATE AND STORE COMMENTS
+
   public function store(Post $post)
   {
     request()->validate([

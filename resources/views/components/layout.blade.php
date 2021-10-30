@@ -22,6 +22,9 @@
     </div>
 
     <div class="mt-8 md:mt-0 flex items-center">
+
+      {{--      TO CHECK IF PERSON IS REGISTERED--}}
+
       @auth()
         <p class="text-xs font-bold uppercase">Welcome,<span class="bg-blue-500 text-white p-2 rounded">{{ auth()->user()->name }}!</span>
         </p>
@@ -32,6 +35,22 @@
             Out
           </button>
         </form>
+
+        {{-- TO CHECK IF USER IS ADMIN AND CAN SEE ADMIN'S PANEL     --}}
+
+        @if(auth()->user()->can('admin'))
+
+          <a href="/admin/posts/create"
+             class="text-xs font-bold uppercase hover:bg-blue-500 hover:text-white p-2 rounded">Create post
+          </a>
+
+          <a href="/admin/posts" class="text-xs font-bold uppercase hover:bg-blue-500 hover:text-white p-2 rounded">All
+            posts
+          </a>
+
+        @endif
+
+        {{--TO REGISTER AND LOG IN ON SITE--}}
 
       @else
         <a href="/register"
@@ -86,21 +105,8 @@
   </footer>
 </section>
 <x-flash/>
+
 </body>
 
 
-{{--<!doctype html>--}}
-{{--<html lang="en">--}}
-{{--<head>--}}
-{{--  <meta charset="UTF-8">--}}
-{{--  <meta name="viewport"--}}
-{{--        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">--}}
-{{--  <meta http-equiv="X-UA-Compatible" content="ie=edge">--}}
-{{--  <link rel="stylesheet" href="/app.css">--}}
-{{--  <title>My Blog</title>--}}
-{{--</head>--}}
-{{--<body>--}}
-{{--@yield('content')--}}
-{{--</body>--}}
-{{--</html>--}}
 

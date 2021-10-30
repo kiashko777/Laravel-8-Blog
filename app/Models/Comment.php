@@ -11,12 +11,15 @@ class Comment extends Model
 
   protected $guarded = [];
 
+//RELATIONSHIP BETWEEN POST AND COMMENT
 
   public function post()
   {
     return $this->belongsTo(Post::class);
   }
 
+
+//RELATIONSHIP BETWEEN AUTHOR AND COMMENT
 
   public function author()
   {

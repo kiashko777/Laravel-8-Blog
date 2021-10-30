@@ -7,6 +7,9 @@ use MailchimpMarketing\ApiClient;
 
 class NewsletterController extends Controller
 {
+
+  //  METHOD TO IMPLEMENT THE MAILCHIMP
+
   public function subscribe()
   {
     request()->validate(['email' => 'required|email']);

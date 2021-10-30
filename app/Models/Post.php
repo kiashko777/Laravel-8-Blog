@@ -31,6 +31,7 @@ class Post extends Model
     );
   }
 
+//RELATIONSHIP BETWEEN CATEGORY AND POST
 
   public function category()
   {
@@ -38,11 +39,15 @@ class Post extends Model
   }
 
 
+//RELATIONSHIP BETWEEN POST AND COMMENT
+
   public function comments()
   {
     return $this->hasMany(Comment::class)->orderByDesc('created_at');
   }
 
+
+//RELATIONSHIP BETWEEN POST AND AUTHOR
 
   public function author()
   {

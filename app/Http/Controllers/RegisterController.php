@@ -7,11 +7,16 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
+
+  //  METHOD TO CREATE THE USER
+
   public function create()
   {
     return view('register.create');
   }
 
+
+  //  METHOD TO VALIDATE AND STORE THE USER
 
   public function store()
   {
