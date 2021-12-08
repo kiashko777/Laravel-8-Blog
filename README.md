@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to redberry-laravel-blog 👋</h1>
+<h1 align="center">Redberry Laravel Blog </h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-8.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/npm-%3E%3D8.1.2-blue.svg" />
@@ -25,10 +25,12 @@
 
 ## Prerequisites
 
-- npm >=8.1.2
-- node >=17.1.0
-- alpinejs =2
-- tailwindcss =2.2.16
+- npm = 8.1.2
+- php = 8.0
+- laravel = 8.0
+- node = 7.1.0
+- alpinejs = 2
+- tailwindcss = 2.2.16
 
 ## Install
 
@@ -40,6 +42,7 @@ npm install
 
 ```sh
 php artisan serve
+npm run dev
 ```
 
 ## Author
@@ -49,7 +52,8 @@ php artisan serve
 * Website: https://redberry.agency
 * Twitter: [@KiashkoRoman](https://twitter.com/KiashkoRoman)
 * Github: [@kiashko777](https://github.com/kiashko777)
-* LinkedIn: [@https:\/\/www.linkedin.com\/in\/roman-kiashko-44315139\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/roman-kiashko-44315139\/)
+*
+LinkedIn: [@https:\/\/www.linkedin.com\/in\/roman-kiashko-44315139\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/roman-kiashko-44315139\/)
 
 ## Show your support
 
@@ -58,7 +62,9 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2021 [Roman Kiashko](https://github.com/kiashko777).<br />
-This project is [MIT](https://https://github.com/RedberryInternship/romankiashko-laravel-8-from-scratch/blob/master/LICENSE) licensed.
+This project
+is [MIT](https://https://github.com/RedberryInternship/romankiashko-laravel-8-from-scratch/blob/master/LICENSE)
+licensed.
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+

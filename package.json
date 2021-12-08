@@ -10,6 +10,8 @@
     "url": "git+https://https://github.com/RedberryInternship/romankiashko-laravel-8-from-scratch"
   },
   "engines": {
+    "laravel": "=8.0",
+    "php": ">=8.0",
     "npm": ">=8.1.2",
     "node": ">=17.1.0",
     "alpinejs": "=2",
