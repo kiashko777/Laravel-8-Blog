@@ -10,20 +10,20 @@ use Schema;
 
 class DatabaseSeeder extends Seeder
 {
-  /**
-   * Seed the application's database.
-   *
-   * @return void
-   */
-  public function run()
-  {
-    Schema::disableForeignKeyConstraints();
-    User::truncate();
-    Category::truncate();
-    Post::truncate();
-    Schema::enableForeignKeyConstraints();
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Schema::disableForeignKeyConstraints();
+        User::truncate();
+        Category::truncate();
+        Post::truncate();
+        Schema::enableForeignKeyConstraints();
 
-    //Create posts for the single user
+        //Create posts for the single user
 
 //    $user = User::factory()->create([
 //      'name' => "Roman Kiashko"
@@ -33,10 +33,9 @@ class DatabaseSeeder extends Seeder
 //      'user_id' => $user->id
 //    ]);
 
+        Post::factory(25)->create();
 
-    Post::factory(25)->create();
-
-//Usage of DB seeder
+        //Usage of DB seeder
 
 //    $user = User::factory()->create();
 //
@@ -82,5 +81,5 @@ class DatabaseSeeder extends Seeder
 //      'body' => "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
 //    ]);
 //  }
-  }
+    }
 }

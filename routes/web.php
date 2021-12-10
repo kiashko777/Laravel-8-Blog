@@ -53,7 +53,6 @@ Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
 //ROUTE TO FETCH AUTHOR'S POSTS
 
 Route::get('authors/{author:username}', function (User $author) {
-
     return view('posts.index', [
         'posts' => $author->posts->load(['category', 'author']),
         'categories' => Category::all(),
@@ -64,7 +63,6 @@ Route::get('authors/{author:username}', function (User $author) {
 //ROUTE TO FETCH CATEGORIES
 
 Route::get('categories/{category:slug}', function (Category $category) {
-
     return view('posts.index', [
         'posts' => $category->posts->load(['category', 'author']),
         'carrentCategory' => $category,
