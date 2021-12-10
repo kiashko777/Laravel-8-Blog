@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,9 +17,11 @@ class DatabaseSeeder extends Seeder
    */
   public function run()
   {
+    Schema::disableForeignKeyConstraints();
     User::truncate();
     Category::truncate();
     Post::truncate();
+    Schema::enableForeignKeyConstraints();
 
     //Create posts for the single user
 
@@ -31,7 +34,7 @@ class DatabaseSeeder extends Seeder
 //    ]);
 
 
-    Post::factory(20)->create();
+    Post::factory(25)->create();
 
 //Usage of DB seeder
 
