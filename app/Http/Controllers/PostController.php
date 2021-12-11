@@ -9,7 +9,7 @@ class PostController extends Controller
 {
 //  METHOD TO SEE ALL POSTS
 
-    public function index(Post $post)
+    public function index()
     {
         return view('posts.index', [
       'posts' => Post::latest()->with('category', 'author')->filter(request(['search', 'category', 'author']))->paginate(6)->withQueryString(),
