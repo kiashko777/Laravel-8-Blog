@@ -9,34 +9,25 @@ class AdminPostController extends Controller
 {
 //  METHOD TO SEE ALL POSTS IN ADMIN SECTION
 
-    public function index()
-    {
-        return view('admin.posts.index', [
+  public function index()
+  {
+    return view('admin.posts.index', [
       'posts' => Post::paginate(10),
     ]);
-    }
+  }
 
-    //  METHOD TO CREATE THE POST
+  //  METHOD TO CREATE THE POST
 
-    public function create()
-    {
-        //SIMPLE WAY TO PROTECT ADMIN PART
-//    if (auth()->guest()) {
-//      abort(Response::HTTP_FORBIDDEN);
-//    }
-//
-//    if (auth()->user()->username !== 'kiashko777') {
-//      abort(Response::HTTP_FORBIDDEN);
-//    }
+  public function create()
+  {
+    return view('admin.posts.create');
+  }
 
-        return view('admin.posts.create');
-    }
+  //  METHOD TO VALIDATE AND STORE THE POST
 
-    //  METHOD TO VALIDATE AND STORE THE POST
-
-    public function store()
-    {
-        $attributes = request()->validate([
+  public function store()
+  {
+    $attributes = request()->validate([
       'title' => 'required',
       'thumbnail' => 'required|image',
       'slug' => ['required', Rule::unique('posts', 'slug')],
@@ -45,28 +36,28 @@ class AdminPostController extends Controller
       'category_id' => ['required', Rule::exists('categories', 'id')],
     ]);
 
-        $attributes['user_id'] = auth()->id();
-        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+    $attributes['user_id'] = auth()->id();
+    $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
 
-        Post::create($attributes);
+    Post::create($attributes);
 
-        return redirect('/');
-    }
+    return redirect(route('home'));
+  }
 
-    //  METHOD TO EDIT THE POST
+  //  METHOD TO EDIT THE POST
 
-    public function edit(Post $post)
-    {
-        return view('admin.posts.edit', [
+  public function edit(Post $post)
+  {
+    return view('admin.posts.edit', [
       'post' => $post,
     ]);
-    }
+  }
 
-    //  METHOD TO UPDATE THE POST
+  //  METHOD TO UPDATE THE POST
 
-    public function update(Post $post)
-    {
-        $attributes = request()->validate([
+  public function update(Post $post)
+  {
+    $attributes = request()->validate([
       'title' => 'required',
       'thumbnail' => 'image',
       'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
@@ -75,21 +66,21 @@ class AdminPostController extends Controller
       'category_id' => ['required', Rule::exists('categories', 'id')],
     ]);
 
-        if (isset($attributes['thumbnail'])) {
-            $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
-        }
-
-        $post->update($attributes);
-
-        return back()->with('success', 'Post Updated!');
+    if (isset($attributes['thumbnail'])) {
+      $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
     }
 
-    //  METHOD TO DELETE THE POST
+    $post->update($attributes);
 
-    public function destroy(Post $post)
-    {
-        $post->delete();
+    return back()->with('success', 'Post Updated!');
+  }
 
-        return back()->with('success', 'Post Deleted!');
-    }
+  //  METHOD TO DELETE THE POST
+
+  public function destroy(Post $post)
+  {
+    $post->delete();
+
+    return back()->with('success', 'Post Deleted!');
+  }
 }

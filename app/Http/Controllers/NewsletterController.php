@@ -29,6 +29,6 @@ class NewsletterController extends Controller
       throw ValidationException::withMessages(['email' => 'This address cannot be added to the list!']);
     }
 
-    return redirect('/')->with('success', 'You address is added to the list!');
+    return redirect(route('home'))->with('success', 'You address is added to the list!');
   }
 }

@@ -8,33 +8,33 @@ class SessionsController extends Controller
 {
   //  METHOD TO HANDLE AND VALIDATE THE SESSIONS
 
-    public function create()
-    {
-        return view('sessions.create');
-    }
+  public function create()
+  {
+    return view('sessions.create');
+  }
 
-    public function store()
-    {
-        $attributes = request()->validate([
+  public function store()
+  {
+    $attributes = request()->validate([
       'email' => 'required|email',
       'password' => 'required',
     ]);
 
-        if (auth()->attempt($attributes)) {
-            session()->regenerate();
+    if (auth()->attempt($attributes)) {
+      session()->regenerate();
 
-            return redirect('/')->with('success', 'Welcome Back!');
-        }
+      return redirect(route('home'))->with('success', 'Welcome Back!');
+    }
 
-        throw ValidationException::withMessages([
+    throw ValidationException::withMessages([
       'email' => 'Your credentials not verified!',
     ]);
-    }
+  }
 
-    public function destroy()
-    {
-        auth()->logout();
+  public function destroy()
+  {
+    auth()->logout();
 
-        return redirect('/')->with('success', 'Goodbye!');
-    }
+    return redirect(route('home'))->with('success', 'Goodbye!');
+  }
 }
