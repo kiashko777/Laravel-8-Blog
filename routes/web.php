@@ -42,25 +42,15 @@ Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store
 
 
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
+
+
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
 
 
-Route::get('authors/{author:username}', function (User $author) {
-  return view('posts.index', [
-    'posts' => $author->posts->load(['category', 'author']),
-    'categories' => Category::all(),
-
-  ]);
-});
+Route::get('authors/{author:username}', [PostController::class, 'getAuthor']);
 
 
-Route::get('categories/{category:slug}', function (Category $category) {
-  return view('posts.index', [
-    'posts' => $category->posts->load(['category', 'author']),
-    'carrentCategory' => $category,
-    'categories' => Category::all(),
-  ]);
-});
+Route::get('categories/{category:slug}', [PostController::class, 'getCategory']);
 
 
 Route::post('newsletter', [NewsletterController::class, 'subscribe']);
@@ -86,3 +76,4 @@ Route::middleware('admin')->group(function () {
   Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy']);
 
 });
+

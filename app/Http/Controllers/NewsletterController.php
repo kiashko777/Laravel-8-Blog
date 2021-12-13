@@ -7,7 +7,9 @@ use MailchimpMarketing\ApiClient;
 
 class NewsletterController extends Controller
 {
-  //  METHOD TO IMPLEMENT THE MAILCHIMP
+  /*
+   * METHOD TO IMPLEMENT THE MAILCHIMP
+   * */
 
   public function subscribe()
   {

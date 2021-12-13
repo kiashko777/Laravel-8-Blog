@@ -11,7 +11,9 @@ class Post extends Model
 
   protected $guarded = [];
 
-  // IMPLEMENT SEARCH FUNCTIONALITY
+  /*
+   * IMPLEMENT SEARCH FUNCTIONALITY
+   * */
 
   public function scopeFilter($query, array $filters)
   {
@@ -38,21 +40,28 @@ class Post extends Model
     );
   }
 
-  //RELATIONSHIP BETWEEN CATEGORY AND POST
+  /*
+   * RELATIONSHIP BETWEEN CATEGORY AND POST
+   * */
 
   public function category()
   {
     return $this->belongsTo(Category::class);
   }
 
-  //RELATIONSHIP BETWEEN POST AND COMMENT
+  /*
+   * RELATIONSHIP BETWEEN POST AND COMMENT
+   * */
 
   public function comments()
   {
     return $this->hasMany(Comment::class)->orderByDesc('created_at');
   }
 
-  //RELATIONSHIP BETWEEN POST AND AUTHOR
+
+  /*
+   * RELATIONSHIP BETWEEN POST AND AUTHOR
+   * */
 
   public function author()
   {

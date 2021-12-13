@@ -8,7 +8,9 @@ use App\Models\User;
 
 class PostController extends Controller
 {
-//  METHOD TO SEE ALL POSTS
+  /*
+   * METHOD TO SEE ALL POSTS
+   * */
 
   public function index()
   {
@@ -20,7 +22,9 @@ class PostController extends Controller
     ]);
   }
 
-  //  METHOD TO SEE SINGLE POST
+  /*
+   * METHOD TO SEE SINGLE POST
+   * */
 
   public function show(Post $post)
   {
@@ -30,7 +34,9 @@ class PostController extends Controller
   }
 
 
-  //  METHOD TO SEE ALL AUTHOR'S POSTS
+  /*
+   * METHOD TO SEE ALL AUTHOR'S POSTS
+   * */
 
   public function getAuthor(User $author)
   {
@@ -41,7 +47,9 @@ class PostController extends Controller
   }
 
 
-  //  METHOD TO SEE ALL POSTS OF CATEGORY SELECTED
+  /*
+   * METHOD TO SEE ALL POSTS OF CATEGORY SELECTED
+   * */
 
   public function getCategory(Category $category)
   {

@@ -43,7 +43,9 @@ class User extends Authenticatable
   ];
 
 
-  //RELATIONSHIP BETWEEN POST AND USER
+  /*
+   * RELATIONSHIP BETWEEN POST AND USER
+   * */
 
   public function posts()
   {

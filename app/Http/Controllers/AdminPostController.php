@@ -7,7 +7,9 @@ use Illuminate\Validation\Rule;
 
 class AdminPostController extends Controller
 {
-//  METHOD TO SEE ALL POSTS IN ADMIN SECTION
+  /*
+   *  METHOD TO SEE ALL POSTS IN ADMIN SECTION
+   * */
 
   public function index()
   {
@@ -16,14 +18,19 @@ class AdminPostController extends Controller
     ]);
   }
 
-  //  METHOD TO CREATE THE POST
+  /*
+   * METHOD TO CREATE THE POST
+   * */
 
   public function create()
   {
     return view('admin.posts.create');
   }
 
-  //  METHOD TO VALIDATE AND STORE THE POST
+
+  /*
+   *  METHOD TO VALIDATE AND STORE THE POST
+   * */
 
   public function store()
   {
@@ -44,7 +51,9 @@ class AdminPostController extends Controller
     return redirect(route('home'));
   }
 
-  //  METHOD TO EDIT THE POST
+  /*
+   *   METHOD TO EDIT THE POST
+   * */
 
   public function edit(Post $post)
   {
@@ -53,7 +62,9 @@ class AdminPostController extends Controller
     ]);
   }
 
-  //  METHOD TO UPDATE THE POST
+  /*
+   * METHOD TO UPDATE THE POST
+   * */
 
   public function update(Post $post)
   {
@@ -75,7 +86,9 @@ class AdminPostController extends Controller
     return back()->with('success', 'Post Updated!');
   }
 
-  //  METHOD TO DELETE THE POST
+  /*
+   * METHOD TO DELETE THE POST
+   * */
 
   public function destroy(Post $post)
   {

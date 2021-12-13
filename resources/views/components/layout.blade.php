@@ -2,14 +2,11 @@
 
 <title>Redberry Blog</title>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
+{{--<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>--}}
+<script src="{{ asset('js/app.js') }}" defer></script>
 
 <body style="font-family: Open Sans, sans-serif">
 <section class="px-6 py-8">
@@ -22,7 +19,7 @@
 
     <div class="mt-8 md:mt-0 flex items-center">
 
-      {{--      TO CHECK IF PERSON IS REGISTERED--}}
+     {{--TO CHECK IF PERSON IS REGISTERED--}}
 
       @auth()
         <p class="text-xs font-bold uppercase">Welcome,<span class="bg-blue-500 text-white p-2 rounded">{{ auth()->user()->name }}!</span>
@@ -35,7 +32,7 @@
           </button>
         </form>
 
-        {{-- TO CHECK IF USER IS ADMIN AND CAN SEE ADMIN'S PANEL     --}}
+        {{--TO CHECK IF USER IS ADMIN AND CAN SEE ADMIN'S PANEL--}}
 
         @if(auth()->user()->can('admin'))
 

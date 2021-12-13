@@ -6,7 +6,9 @@ use Illuminate\Validation\ValidationException;
 
 class SessionsController extends Controller
 {
-  //  METHOD TO HANDLE AND VALIDATE THE SESSIONS
+  /*
+   * METHOD TO HANDLE AND VALIDATE THE SESSIONS
+   * */
 
   public function create()
   {
