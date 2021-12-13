@@ -10,10 +10,7 @@
     <div class="flex-1 flex flex-col justify-between">
       <header class="mt-8 lg:mt-0">
         <div class="space-x-2">
-          <a href="/categories/{{ $post->category->slug }}"
-             class="px-3 py-1 border border-blue-300 rounded-full text-blue-400 text-bold hover:bg-blue-500 hover:text-white text-xs uppercase font-semibold"
-             style="font-size: 10px">{{ $post->category->name }}</a>
-
+          <x-category-button :category="$post->category" />
         </div>
 
         <div class="mt-4">
@@ -23,14 +20,14 @@
             </a>
           </h1>
 
-          <span class="mt-2 block text-gray-500 text-xs">
+          <span class="mt-2 block text-gray-400 text-xs">
             Published <time>{{ $post->created_at->diffForHumans() }}</time>
           </span>
         </div>
       </header>
 
       <div class="text-sm mt-2 space-y-4">
-        {!!  $post->excerpt !!}
+        {!! $post->excerpt !!}
       </div>
 
       <footer class="flex justify-between items-center mt-8">

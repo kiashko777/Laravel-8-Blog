@@ -18,7 +18,7 @@ class PostController extends Controller
       'posts' => Post::latest()->filter(
         request(['search', 'category', 'author'])
       )->paginate(6)->withQueryString(),
-      'categories' => Category::all(),
+      'categories' => Category::all()
     ]);
   }
 
@@ -29,34 +29,8 @@ class PostController extends Controller
   public function show(Post $post)
   {
     return view('posts.show', [
-      'post' => $post,
+      'post' => $post
     ]);
   }
 
-
-  /*
-   * METHOD TO SEE ALL AUTHOR'S POSTS
-   * */
-
-  public function getAuthor(User $author)
-  {
-    return view('posts.index', [
-      'posts' => $author->posts->load(['category', 'author']),
-      'categories' => Category::all(),
-    ]);
-  }
-
-
-  /*
-   * METHOD TO SEE ALL POSTS OF CATEGORY SELECTED
-   * */
-
-  public function getCategory(Category $category)
-  {
-    return view('posts.index', [
-      'posts' => $category->posts->load(['category', 'author']),
-      'carrentCategory' => $category,
-      'categories' => Category::all(),
-    ]);
-  }
 }

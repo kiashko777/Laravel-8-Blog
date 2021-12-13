@@ -47,12 +47,6 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest')-
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 
 
-Route::get('authors/{author:username}', [PostController::class, 'getAuthor'])->name('getauthor');
-
-
-Route::get('categories/{category:slug}', [PostController::class, 'getCategory'])->name('getcategory');
-
-
 Route::post('newsletter', [NewsletterController::class, 'subscribe'])->name('subscribe');
 
 
