@@ -9,20 +9,22 @@ class PostController extends Controller
 {
 //  METHOD TO SEE ALL POSTS
 
-    public function index()
-    {
-        return view('posts.index', [
-      'posts' => Post::latest()->with('category', 'author')->filter(request(['search', 'category', 'author']))->paginate(6)->withQueryString(),
+  public function index()
+  {
+    return view('posts.index', [
+      'posts' => Post::latest()->filter(
+        request(['search', 'category', 'author'])
+      )->paginate()->withQueryString(),
       'categories' => Category::all(),
     ]);
-    }
+  }
 
-    //  METHOD TO SEE SINGLE POST
+  //  METHOD TO SEE SINGLE POST
 
-    public function show(Post $post)
-    {
-        return view('posts.show', [
+  public function show(Post $post)
+  {
+    return view('posts.show', [
       'post' => $post,
     ]);
-    }
+  }
 }
