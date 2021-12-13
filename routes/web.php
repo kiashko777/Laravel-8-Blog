@@ -26,54 +26,54 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostController::class, 'index'])->name('home');
 
 
-Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('show');
 
 
-Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
+Route::get('register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 
 
-Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest')->name('registeruser');
 
 
-Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 
 
-Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store']);
+Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store'])->name('comment');
 
 
-Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
+Route::post('login', [SessionsController::class, 'store'])->middleware('guest')->name('loginuser');
 
 
-Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 
 
-Route::get('authors/{author:username}', [PostController::class, 'getAuthor']);
+Route::get('authors/{author:username}', [PostController::class, 'getAuthor'])->name('getauthor');
 
 
-Route::get('categories/{category:slug}', [PostController::class, 'getCategory']);
+Route::get('categories/{category:slug}', [PostController::class, 'getCategory'])->name('getcategory');
 
 
-Route::post('newsletter', [NewsletterController::class, 'subscribe']);
+Route::post('newsletter', [NewsletterController::class, 'subscribe'])->name('subscribe');
 
 
 Route::middleware('admin')->group(function () {
 
-  Route::get('admin/posts/create', [AdminPostController::class, 'create']);
+  Route::get('admin/posts/create', [AdminPostController::class, 'create'])->name('createpost');
 
 
-  Route::post('admin/posts', [AdminPostController::class, 'store']);
+  Route::post('admin/posts', [AdminPostController::class, 'store'])->name('storepost');
 
 
-  Route::get('admin/posts', [AdminPostController::class, 'index']);
+  Route::get('admin/posts', [AdminPostController::class, 'index'])->name('getposts');
 
 
-  Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit']);
+  Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->name('editpost');
 
 
-  Route::patch('admin/posts/{post}', [AdminPostController::class, 'update']);
+  Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->name('updatepost');
 
 
-  Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy']);
+  Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->name('deletepost');
 
 });
 

@@ -24,7 +24,7 @@
 
         <div x-show="show" class="py-2 absolute bg-gray-100 mt-2 rounded-xl w-full z-50 overflow-auto max-h-52"
              style="display: none">
-          <a href="/"
+          <a href="{{ route('home') }}"
              class="block text-left px-3 text-sm leading-6 hover:bg-blue-500 focus:bg-blue-500 hover:text-white focus:text-white"
           >All</a>
 
@@ -39,7 +39,7 @@
 
       {{-- SEARCH FORM--}}
       <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
-        <form method="GET" action="/">
+        <form method="GET" action="{{ route('home') }}">
           <input type="text" name="search" placeholder="Find something..."
                  class="bg-transparent placeholder-black font-semibold text-sm"
                  value="{{ request('search') }}"

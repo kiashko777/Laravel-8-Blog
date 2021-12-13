@@ -5,7 +5,7 @@
 {{--IMPLEMENT REGISTRATION--}}
 
       <h1 class="text-center font-bold text-xl">Please Register!</h1>
-      <form method="POST" action="/register" class="mt-10">
+      <form method="POST" action="{{ route('register') }}" class="mt-10">
         @csrf
         <div class="mb-6">
           <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
@@ -88,7 +88,7 @@
 
         <div class="mb-6">
           <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">Register!</button>
-          <a href="/login" class="ml-8 text-xs font-bold uppercase">Log In</a>
+          <a href="{{ route('login') }}" class="ml-8 text-xs font-bold uppercase">Log In</a>
         </div>
 
 

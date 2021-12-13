@@ -12,20 +12,20 @@
 <section class="px-6 py-8">
   <nav class="md:flex md:justify-between md:items-center">
     <div>
-      <a href="/">
-        <img src="/images/logo.svg" alt="Laracasts Logo" width="165" height="16">
+      <a href="{{ route('home') }}">
+        <img src="{{ asset('images/logo.svg') }}" alt="Laracasts Logo" width="165" height="16">
       </a>
     </div>
 
     <div class="mt-8 md:mt-0 flex items-center">
 
-     {{--TO CHECK IF PERSON IS REGISTERED--}}
+      {{--TO CHECK IF PERSON IS REGISTERED--}}
 
       @auth()
         <p class="text-xs font-bold uppercase">Welcome,<span class="bg-blue-500 text-white p-2 rounded">{{ auth()->user()->name }}!</span>
         </p>
 
-        <form method="POST" action="/logout" class="text-xs font-bold uppercase ml-6">
+        <form method="POST" action="{{ route('logout') }}" class="text-xs font-bold uppercase ml-6">
           @csrf
           <button type="submit" class="text-xs font-bold uppercase hover:bg-blue-500 hover:text-white p-2 rounded">Log
             Out
@@ -36,11 +36,12 @@
 
         @if(auth()->user()->can('admin'))
 
-          <a href="/admin/posts/create"
+          <a href="{{ route('createpost') }}"
              class="text-xs font-bold uppercase hover:bg-blue-500 hover:text-white p-2 rounded">Create post
           </a>
 
-          <a href="/admin/posts" class="text-xs font-bold uppercase hover:bg-blue-500 hover:text-white p-2 rounded">All
+          <a href="{{ route('getposts')}}"
+             class="text-xs font-bold uppercase hover:bg-blue-500 hover:text-white p-2 rounded">All
             posts
           </a>
 
@@ -49,9 +50,10 @@
         {{--TO REGISTER AND LOG IN ON SITE--}}
 
       @else
-        <a href="/register"
+        <a href="{{ route('register') }}"
            class="text-xs font-bold uppercase hover:bg-blue-500 hover:text-white p-2 rounded">Register</a>
-        <a href="/login" class="ml-3 text-xs font-bold uppercase hover:bg-blue-500 hover:text-white p-2 rounded">Log
+        <a href="{{ route('login') }}"
+           class="ml-3 text-xs font-bold uppercase hover:bg-blue-500 hover:text-white p-2 rounded">Log
           In</a>
       @endauth
 
@@ -66,18 +68,18 @@
 
   <footer id="newsletter"
           class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
-    <img src="/images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
+    <img src="{{ asset('images/lary-newsletter-icon.svg') }}" alt="" class="mx-auto -mb-6" style="width: 145px;">
     <h5 class="text-3xl">Stay in touch with the latest posts</h5>
     <p class="text-sm mt-3">Promise to keep the inbox clean. No bugs.</p>
 
     <div class="mt-10">
       <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
 
-        <form method="POST" action="/newsletter" class="lg:flex text-sm">
+        <form method="POST" action="{{ route('subscribe') }}" class="lg:flex text-sm">
           @csrf
           <div class="lg:py-3 lg:px-5 flex items-center">
             <label for="email" class="hidden lg:inline-block">
-              <img src="/images/mailbox-icon.svg" alt="mailbox letter">
+              <img src="{{ asset('images/mailbox-icon.svg') }}" alt="mailbox letter">
             </label>
 
             <input id="email" type="text" name="email" placeholder="Your email address"
