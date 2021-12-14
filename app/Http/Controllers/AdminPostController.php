@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Validation\Rule;
@@ -35,16 +37,9 @@ class AdminPostController extends Controller
    *  METHOD TO VALIDATE AND STORE THE POST
    * */
 
-  public function store()
+  public function store(StorePostRequest $request)
   {
-    $attributes = request()->validate([
-      'title' => 'required',
-      'thumbnail' => 'required|image',
-      'slug' => ['required', Rule::unique('posts', 'slug')],
-      'excerpt' => 'required',
-      'body' => 'required',
-      'category_id' => ['required', Rule::exists('categories', 'id')],
-    ]);
+    $attributes = $request->validated();
 
     $attributes['user_id'] = auth()->id();
     $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
@@ -70,16 +65,9 @@ class AdminPostController extends Controller
    * METHOD TO UPDATE THE POST
    * */
 
-  public function update(Post $post)
+  public function update(UpdatePostRequest $request, Post $post)
   {
-    $attributes = request()->validate([
-      'title' => 'required',
-      'thumbnail' => 'image',
-      'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
-      'excerpt' => 'required',
-      'body' => 'required',
-      'category_id' => ['required', Rule::exists('categories', 'id')],
-    ]);
+    $attributes = $request->validated();
 
     if (isset($attributes['thumbnail'])) {
       $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');

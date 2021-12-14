@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SubscribeUserRequest;
 use Illuminate\Validation\ValidationException;
 use MailchimpMarketing\ApiClient;
 
@@ -11,9 +12,9 @@ class NewsletterController extends Controller
    * METHOD TO IMPLEMENT THE MAILCHIMP
    * */
 
-  public function subscribe()
+  public function subscribe(SubscribeUserRequest $request)
   {
-    request()->validate(['email' => 'required|email']);
+    $request->validated();
 
     $mailchimp = new ApiClient();
 

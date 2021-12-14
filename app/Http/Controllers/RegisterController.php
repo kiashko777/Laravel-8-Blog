@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 
 class RegisterController extends Controller
@@ -20,14 +21,9 @@ class RegisterController extends Controller
    *  METHOD TO VALIDATE AND STORE THE USER
    * */
 
-  public function store()
+  public function store(StoreUserRequest $request)
   {
-    $attributes = request()->validate([
-      'name' => 'required|max:255|unique:users,name',
-      'username' => 'required|max:255|min:3|unique:users,username',
-      'email' => 'required|email|max:255|unique:users,email',
-      'password' => 'required|max:255|min:7|confirmed',
-    ]);
+    $attributes = $request->validated();
 
     $attributes['password'] = bcrypt($attributes['password']);
 
