@@ -14,14 +14,14 @@
                 @foreach($posts as $post)
                   <tr class="bg-gray-50">
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      <a class="hover:text-gray-700" href="/posts/{{ $post->slug }}">
+                      <a class="hover:text-gray-700" href="{{ route('show',$post->slug) }}">
                         {{ $post->title }}
                       </a>
                       <hr>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="/admin/posts/{{ $post->id }}/edit" class="text-blue-500">Edit</a>
-                      <form method="POST" action="/admin/posts/{{ $post->id }}">
+                      <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-500">Edit</a>
+                      <form method="POST" action="{{ route('posts.delete', $post->id) }}">
                         @csrf
                         @method('DELETE')
                         <button class="text-red-500 mt-1">Delete</button>

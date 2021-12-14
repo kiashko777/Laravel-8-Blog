@@ -32,16 +32,16 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('show');
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 
 
-Route::post('register', [RegisterController::class, 'store'])->middleware('guest')->name('registeruser');
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
 
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 
 
-Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store'])->name('comment');
+Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store'])->name('posts.comments');
 
 
-Route::post('login', [SessionsController::class, 'store'])->middleware('guest')->name('loginuser');
+Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
@@ -52,22 +52,22 @@ Route::post('newsletter', [NewsletterController::class, 'subscribe'])->name('sub
 
 Route::middleware('admin')->group(function () {
 
-  Route::get('admin/posts/create', [AdminPostController::class, 'create'])->name('createpost');
+  Route::get('admin/posts/create', [AdminPostController::class, 'create'])->name('posts.create');
 
 
-  Route::post('admin/posts', [AdminPostController::class, 'store'])->name('storepost');
+  Route::post('admin/posts', [AdminPostController::class, 'store'])->name('posts.store');
 
 
-  Route::get('admin/posts', [AdminPostController::class, 'index'])->name('getposts');
+  Route::get('admin/posts', [AdminPostController::class, 'index'])->name('posts.index');
 
 
-  Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->name('editpost');
+  Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->name('posts.edit');
 
 
-  Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->name('updatepost');
+  Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->name('posts.update');
 
 
-  Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->name('deletepost');
+  Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->name('posts.delete');
 
 });
 

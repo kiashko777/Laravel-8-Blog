@@ -5,7 +5,7 @@
 
     <main class="max-w-lg mx-auto mt-10 bg-gray-100 p-6 rounded-xl border border-gray-300">
       <h1 class="text-center font-bold text-xl">Create new post!</h1>
-      <form method="POST" action="/admin/posts" class="mt-10" enctype="multipart/form-data">
+      <form method="POST" action="{{ route('posts.store') }}" class="mt-10" enctype="multipart/form-data">
         @csrf
         <div class="mb-6">
           <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="title">

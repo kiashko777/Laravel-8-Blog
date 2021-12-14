@@ -5,7 +5,7 @@
 {{--      FORM TO EDIT THE POST--}}
 
       <h1 class="text-center font-bold text-xl">Edit Post: {{ $post->title }}</h1>
-      <form method="POST" action="/admin/posts/{{ $post->id }}" class="mt-10" enctype="multipart/form-data">
+      <form method="POST" action=" {{ route('posts.update', $post->id) }}" class="mt-10" enctype="multipart/form-data">
         @csrf
         @method ('PATCH')
         <div class="mb-6">

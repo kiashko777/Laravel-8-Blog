@@ -91,7 +91,6 @@
           <a href="{{ route('login') }}" class="ml-8 text-xs font-bold uppercase">Log In</a>
         </div>
 
-
         {{--        TO SHOW ALL VALIDATION ERRORS--}}
 
         @if($errors->any())

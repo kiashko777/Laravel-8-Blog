@@ -35,11 +35,11 @@
 
         @if(auth()->user()->can('admin'))
 
-          <a href="{{ route('createpost') }}"
+          <a href="{{ route('posts.create') }}"
              class="text-xs font-bold uppercase hover:bg-blue-500 hover:text-white p-2 rounded">Create post
           </a>
 
-          <a href="{{ route('getposts')}}"
+          <a href="{{ route('posts.index') }}"
              class="text-xs font-bold uppercase hover:bg-blue-500 hover:text-white p-2 rounded">All
             posts
           </a>

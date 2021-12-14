@@ -2,7 +2,7 @@
   <x-panel>
     {{--FORM TO CREATE AND SEND THE COMMENTS--}}
 
-    <form method="POST" action="/posts/{{ $post->slug }}/comments"
+    <form method="POST" action="{{ route('posts.comments',$post->slug) }}"
           class="border border-gray-300 bg-gray-100 p-6 rounded-xl">
       @csrf
       <header class="flex items-center">
