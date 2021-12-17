@@ -9,7 +9,7 @@
               <table class="min-w-full divide-y divide-gray-200 ">
                 <tbody>
 
-{{--                HERE WE'LL SEE ALL POST FOR ADMIN ACTIONS--}}
+{{--Here we'll see all posts for admin section--}}
 
                 @foreach($posts as $post)
                   <tr class="bg-gray-50">
@@ -34,7 +34,7 @@
               </table>
             </div>
 
-{{--            PAGINATION OF ADMIN PART--}}
+{{--Pagination for admin section--}}
 
             <p class="mt-4">{{ $posts->links() }}</p>
           </div>

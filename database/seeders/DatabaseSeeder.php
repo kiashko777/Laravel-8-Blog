@@ -10,21 +10,19 @@ use Schema;
 
 class DatabaseSeeder extends Seeder
 {
-  /**
-   * Seed the application's database.
-   *
-   * @return void
-   */
-  public function run()
-  {
-    Schema::disableForeignKeyConstraints();
-    User::truncate();
-    Category::truncate();
-    Post::truncate();
-    Schema::enableForeignKeyConstraints();
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Schema::disableForeignKeyConstraints();
+        User::truncate();
+        Category::truncate();
+        Post::truncate();
+        Schema::enableForeignKeyConstraints();
 
-
-    Post::factory(25)->create();
-
-  }
+        Post::factory(25)->create();
+    }
 }

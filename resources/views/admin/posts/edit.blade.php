@@ -2,7 +2,7 @@
   <section class="px-6 py-8">
     <main class="max-w-lg mx-auto mt-10 bg-gray-100 p-6 rounded-xl border border-gray-300">
 
-{{--      FORM TO EDIT THE POST--}}
+{{--Form to edit the post--}}
 
       <h1 class="text-center font-bold text-xl">Edit Post: {{ $post->title }}</h1>
       <form method="POST" action=" {{ route('posts.update', $post->id) }}" class="mt-10" enctype="multipart/form-data">

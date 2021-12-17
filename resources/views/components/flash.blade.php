@@ -1,4 +1,4 @@
-{{--TO IMPLEMENT FLASH MESSAGES--}}
+{{--To implement flash messages--}}
 
 @if(session()->has('success'))
   <div x-data="{show: true}"

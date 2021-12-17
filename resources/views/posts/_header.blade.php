@@ -8,7 +8,7 @@
       <x-category-dropdown/>
     </div>
 
-    {{--SEARCH FORM --}}
+    {{--Search form--}}
 
     <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
       <form method="GET" action="{{ route('home') }}">

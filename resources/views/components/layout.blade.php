@@ -1,5 +1,4 @@
 <!doctype html>
-
 <title>Redberry Blog</title>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -18,7 +17,7 @@
 
     <div class="mt-8 md:mt-0 flex items-center">
 
-      {{--TO CHECK IF PERSON IS REGISTERED--}}
+      {{--To check if user is registered--}}
 
       @auth()
         <p class="text-xs font-bold uppercase">Welcome,<span class="bg-blue-500 text-white p-2 rounded">{{ auth()->user()->name }}!</span>
@@ -31,7 +30,7 @@
           </button>
         </form>
 
-        {{--TO CHECK IF USER IS ADMIN AND CAN SEE ADMIN'S PANEL--}}
+        {{--TOo check if user is admin and can see admin section--}}
 
         @if(auth()->user()->can('admin'))
 
@@ -46,7 +45,7 @@
 
         @endif
 
-        {{--TO REGISTER AND LOG IN ON SITE--}}
+        {{--To register and login operations--}}
 
       @else
         <a href="{{ route('register') }}"

@@ -2,7 +2,7 @@
   <section class="px-6 py-8">
     <main class="max-w-lg mx-auto mt-10 bg-gray-100 p-6 rounded-xl border border-gray-300">
 
-{{--IMPLEMENT REGISTRATION--}}
+{{--Implement registration--}}
 
       <h1 class="text-center font-bold text-xl">Please Register!</h1>
       <form method="POST" action="{{ route('register') }}" class="mt-10">

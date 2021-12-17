@@ -7,16 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-  use HasFactory;
+    use HasFactory;
 
-  protected $guarded = [];
+    protected $guarded = [];
 
-  /*
-   * RELATIONSHIP BETWEEN POSTS AND CATEGORY
-   * */
-
-  public function posts()
-  {
-    return $this->hasMany(Post::class);
-  }
+    /**
+     * Relationship between posts and category.
+     * */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

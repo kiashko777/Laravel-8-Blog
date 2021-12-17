@@ -7,19 +7,18 @@ use App\Models\Post;
 
 class PostCommentsController extends Controller
 {
-  /*
-   *  METHOD TO CREATE AND STORE COMMENTS
-   * */
+    /**
+     *  Method to create and store comments.
+     * */
+    public function store(StoreCommentsRequest $request, Post $post)
+    {
+        $request->validated();
 
-  public function store(StoreCommentsRequest $request, Post $post)
-  {
-    $request->validated();
-
-    $post->comments()->create([
+        $post->comments()->create([
       'user_id' => request()->user()->id,
       'body' => request('body'),
     ]);
 
-    return back();
-  }
+        return back();
+    }
 }

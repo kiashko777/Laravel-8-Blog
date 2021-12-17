@@ -7,14 +7,14 @@ use Illuminate\View\Component;
 
 class CategoryDropdown extends Component
 {
-  /**
-   * Get the view / contents that represent the component.
-   */
-  public function render()
-  {
-    return view('components.category-dropdown', [
+    /**
+     * Method to render category dropdown.
+     */
+    public function render()
+    {
+        return view('components.category-dropdown', [
       'categories' => Category::all(),
-      'currentCategory' => Category::firstWhere('slug', request('category'))
+      'currentCategory' => Category::firstWhere('slug', request('category')),
     ]);
-  }
+    }
 }

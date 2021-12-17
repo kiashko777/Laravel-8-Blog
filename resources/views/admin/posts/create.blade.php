@@ -1,7 +1,7 @@
 <x-layout>
   <section class="px-6 py-8">
 
-    {{--    FORM TO CREATE THE POST--}}
+    {{--Form to create the post--}}
 
     <main class="max-w-lg mx-auto mt-10 bg-gray-100 p-6 rounded-xl border border-gray-300">
       <h1 class="text-center font-bold text-xl">Create new post!</h1>

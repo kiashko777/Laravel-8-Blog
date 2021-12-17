@@ -7,25 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-  use HasFactory;
+    use HasFactory;
 
-  protected $guarded = [];
+    protected $guarded = [];
 
-  /*RELATIONSHIP BETWEEN POST AND COMMENT
-  */
+    /**
+     * Relationship between posts and comments.
+     **/
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
 
-  public function post()
-  {
-    return $this->belongsTo(Post::class);
-  }
-
-
-  /*
-   * RELATIONSHIP BETWEEN AUTHOR AND COMMENT
-   * */
-
-  public function author()
-  {
-    return $this->belongsTo(User::class, 'user_id');
-  }
+    /**
+     * Relationship between author and comments.
+     * */
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
