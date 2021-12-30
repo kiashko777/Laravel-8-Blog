@@ -41,11 +41,11 @@
 
         <div class="mb-6">
           <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">Log In!</button>
-          <a href="/register" class="ml-8 text-xs font-bold uppercase">Register</a>
+          <a href="{{ route('register') }}" class="ml-8 text-xs font-bold uppercase">Register</a>
         </div>
 
 
-        {{--        TO SHOW ALL VALIDATION ERRORS--}}
+        {{--To show all validation errors--}}
 
         @if($errors->any())
           <ul>
